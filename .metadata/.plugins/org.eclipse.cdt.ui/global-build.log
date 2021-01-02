@@ -1,0 +1,559 @@
+15:23:43 **** Clean-only build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 clean 
+rm -rf *
+rm: can't remove '001HumidtyMonitor.elf': Permission denied
+make: [makefile:71: clean] Error 1 (ignored)
+ 
+15:24:14 **** Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+   text	   data	    bss	    dec	    hex	filename
+  13156	     20	   1884	  15060	   3ad4	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:24:56 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f407vgtx.d" -MT"Core/Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f407vgtx.o" "../Core/Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Core/Src/DHT11.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DHT11.d" -MT"Core/Src/DHT11.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DHT11.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/DHT11.c: In function 'DHT11_Start':
+../Core/Src/DHT11.c:30:2: warning: implicit declaration of function 'delay' [-Wimplicit-function-declaration]
+  delay(18000);
+  ^~~~~
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13168	     20	   1884	  15072	   3ae0	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:25:11 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13176	     20	   1884	  15080	   3ae8	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:26:13 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:87:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13176	     20	   1884	  15080	   3ae8	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+Finished building: 001HumidtyMonitor.list
+ 
+ 
+15:26:25 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13176	     20	   1884	  15080	   3ae8	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+15:29:00 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:85:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13168	     20	   1884	  15072	   3ae0	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:30:23 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:85:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13168	     20	   1884	  15072	   3ae0	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+Finished building: 001HumidtyMonitor.list
+ 
+ 
+15:30:57 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13168	     20	   1884	  15072	   3ae0	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+15:32:20 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:84:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13168	     20	   1892	  15080	   3ae8	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:34:43 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:88:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14052	     20	   1892	  15964	   3e5c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:38:54 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14052	     20	   1892	  15964	   3e5c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+15:39:06 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14052	     20	   1892	  15964	   3e5c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+15:39:43 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14052	     20	   1892	  15964	   3e5c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+15:40:24 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11432	     20	   1892	  13344	   3420	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:41:45 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:88:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14052	     20	   1892	  15964	   3e5c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:42:40 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:88:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14040	     20	   1892	  15952	   3e50	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:44:44 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:71:28: error: 'comp' undeclared (first use in this function); did you mean 'bcmp'?
+    if (counter % 2 != 0 && comp > 512)
+                            ^~~~
+                            bcmp
+../Core/Src/main.c:71:28: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+15:45:05 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14100	     20	   1892	  16012	   3e8c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:45:56 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14112	     20	   1892	  16024	   3e98	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:47:07 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14100	     20	   1892	  16012	   3e8c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:47:33 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12408	     20	   1892	  14320	   37f0	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:49:33 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12408	     20	   1892	  14320	   37f0	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+15:49:55 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14100	     20	   1892	  16012	   3e8c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+15:50:09 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14100	     20	   1892	  16012	   3e8c	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+15:54:27 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13212	     20	   1892	  15124	   3b14	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+16:25:47 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13212	     20	   1892	  15124	   3b14	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+16:26:08 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13212	     20	   1892	  15124	   3b14	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+16:27:01 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13212	     20	   1892	  15124	   3b14	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+16:28:35 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13224	     20	   1892	  15136	   3b20	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+16:31:10 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13224	     20	   1892	  15136	   3b20	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+16:33:32 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13952	     20	   1892	  15864	   3df8	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
+16:37:17 **** Incremental Build of configuration Debug for project 001HumidtyMonitor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:14: warning: unused variable 'temp2' [-Wunused-variable]
+      uint8_t temp2 = (uint8_t)dhtsensorvar.TEMPERATURE;
+              ^~~~~
+arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\CortexM4_Embedded\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HumidtyMonitor.elf
+ 
+arm-none-eabi-objdump -h -S  001HumidtyMonitor.elf  > "001HumidtyMonitor.list"
+arm-none-eabi-objcopy  -O binary  001HumidtyMonitor.elf  "001HumidtyMonitor.bin"
+arm-none-eabi-size   001HumidtyMonitor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13952	     20	   1892	  15864	   3df8	001HumidtyMonitor.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HumidtyMonitor.bin
+ 
+Finished building: 001HumidtyMonitor.list
+ 
