@@ -1,5 +1,5 @@
 
-001HumidtyMonitor.elf:     file format elf32-littlearm
+Temperature_Monitor.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000ba57  00000000  00000000  0002003c  2**0
+ 12 .debug_info   0000ba1d  00000000  00000000  0002003c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00001850  00000000  00000000  0002ba93  2**0
+ 13 .debug_abbrev 00001852  00000000  00000000  0002ba59  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000d08  00000000  00000000  0002d2e8  2**3
+ 14 .debug_aranges 00000d08  00000000  00000000  0002d2b0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000c40  00000000  00000000  0002dff0  2**3
+ 15 .debug_ranges 00000c40  00000000  00000000  0002dfb8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00020aff  00000000  00000000  0002ec30  2**0
+ 16 .debug_macro  00020aff  00000000  00000000  0002ebf8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00008bd4  00000000  00000000  0004f72f  2**0
+ 17 .debug_line   00008bd5  00000000  00000000  0004f6f7  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000ca244  00000000  00000000  00058303  2**0
+ 18 .debug_str    000ca249  00000000  00000000  000582cc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00122547  2**0
+ 19 .comment      0000007b  00000000  00000000  00122515  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003768  00000000  00000000  001225c4  2**2
+ 20 .debug_frame  00003768  00000000  00000000  00122590  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -353,12 +353,12 @@ Disassembly of section .text:
  80004c4:	4770      	bx	lr
  80004c6:	bf00      	nop
 
-080004c8 <pin_out>:
-volatile uint16_t PARITY_CHECK;
-volatile uint16_t HUM_FULL, TEMP_FULL;
-volatile int REAL_TEMP, REAL_HUM;
+080004c8 <OUTPUT_PIN>:
+SPI_HandleTypeDef hspi1;
+TIM_HandleTypeDef htim6;
+UART_HandleTypeDef huart4;
 
-void pin_out (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+void OUTPUT_PIN (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
  80004c8:	b580      	push	{r7, lr}
  80004ca:	b088      	sub	sp, #32
@@ -397,9 +397,9 @@ void pin_out (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
  8000504:	46bd      	mov	sp, r7
  8000506:	bd80      	pop	{r7, pc}
 
-08000508 <pin_in>:
+08000508 <INPUT_PIN>:
 
-void pin_in (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+void INPUT_PIN (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
  8000508:	b580      	push	{r7, lr}
  800050a:	b088      	sub	sp, #32
@@ -438,20 +438,20 @@ void pin_in (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
  8000544:	46bd      	mov	sp, r7
  8000546:	bd80      	pop	{r7, pc}
 
-08000548 <DHT11_Start>:
+08000548 <SETUP>:
 
-void DHT11_Start (void)
+void SETUP(void)
 {
  8000548:	b580      	push	{r7, lr}
  800054a:	af00      	add	r7, sp, #0
-	pin_out (DHT11_GPIO_Port, DHT11_Pin);
+	OUTPUT_PIN (DHT11_GPIO_Port, DHT11_Pin);
  800054c:	f44f 7100 	mov.w	r1, #512	; 0x200
- 8000550:	480e      	ldr	r0, [pc, #56]	; (800058c <DHT11_Start+0x44>)
- 8000552:	f7ff ffb9 	bl	80004c8 <pin_out>
+ 8000550:	480e      	ldr	r0, [pc, #56]	; (800058c <SETUP+0x44>)
+ 8000552:	f7ff ffb9 	bl	80004c8 <OUTPUT_PIN>
 	HAL_GPIO_WritePin (DHT11_GPIO_Port, DHT11_Pin, DISABLE);
  8000556:	2200      	movs	r2, #0
  8000558:	f44f 7100 	mov.w	r1, #512	; 0x200
- 800055c:	480b      	ldr	r0, [pc, #44]	; (800058c <DHT11_Start+0x44>)
+ 800055c:	480b      	ldr	r0, [pc, #44]	; (800058c <SETUP+0x44>)
  800055e:	f000 ff8d 	bl	800147c <HAL_GPIO_WritePin>
 	delay(18000);
  8000562:	f244 6050 	movw	r0, #18000	; 0x4650
@@ -459,15 +459,15 @@ void DHT11_Start (void)
 	HAL_GPIO_WritePin(DHT11_GPIO_Port, DHT11_Pin, ENABLE);
  800056a:	2201      	movs	r2, #1
  800056c:	f44f 7100 	mov.w	r1, #512	; 0x200
- 8000570:	4806      	ldr	r0, [pc, #24]	; (800058c <DHT11_Start+0x44>)
+ 8000570:	4806      	ldr	r0, [pc, #24]	; (800058c <SETUP+0x44>)
  8000572:	f000 ff83 	bl	800147c <HAL_GPIO_WritePin>
 	delay(20);
  8000576:	2014      	movs	r0, #20
  8000578:	f000 f92a 	bl	80007d0 <delay>
-	pin_in(DHT11_GPIO_Port, DHT11_Pin);
+	INPUT_PIN(DHT11_GPIO_Port, DHT11_Pin);
  800057c:	f44f 7100 	mov.w	r1, #512	; 0x200
- 8000580:	4802      	ldr	r0, [pc, #8]	; (800058c <DHT11_Start+0x44>)
- 8000582:	f7ff ffc1 	bl	8000508 <pin_in>
+ 8000580:	4802      	ldr	r0, [pc, #8]	; (800058c <SETUP+0x44>)
+ 8000582:	f7ff ffc1 	bl	8000508 <INPUT_PIN>
 }
  8000586:	bf00      	nop
  8000588:	bd80      	pop	{r7, pc}
@@ -476,7 +476,7 @@ void DHT11_Start (void)
 
 08000590 <INPUT_CHECK>:
 
-uint8_t INPUT_CHECK (void)
+uint8_t INPUT_CHECK(void)
 {
  8000590:	b580      	push	{r7, lr}
  8000592:	b082      	sub	sp, #8
@@ -531,9 +531,9 @@ uint8_t INPUT_CHECK (void)
  80005ea:	bd80      	pop	{r7, pc}
  80005ec:	40020000 	.word	0x40020000
 
-080005f0 <Temp_Input>:
+080005f0 <READ_SENSOR>:
 
-uint8_t Temp_Input (void)
+uint8_t READ_SENSOR(void)
 {
  80005f0:	b580      	push	{r7, lr}
  80005f2:	b082      	sub	sp, #8
@@ -542,26 +542,26 @@ uint8_t Temp_Input (void)
 	for (j=0;j<8;j++)
  80005f6:	2300      	movs	r3, #0
  80005f8:	71bb      	strb	r3, [r7, #6]
- 80005fa:	e03a      	b.n	8000672 <Temp_Input+0x82>
+ 80005fa:	e03a      	b.n	8000672 <READ_SENSOR+0x82>
 	{
 		while (!(HAL_GPIO_ReadPin (DHT11_GPIO_Port, DHT11_Pin)));
  80005fc:	bf00      	nop
  80005fe:	f44f 7100 	mov.w	r1, #512	; 0x200
- 8000602:	4820      	ldr	r0, [pc, #128]	; (8000684 <Temp_Input+0x94>)
+ 8000602:	4820      	ldr	r0, [pc, #128]	; (8000684 <READ_SENSOR+0x94>)
  8000604:	f000 ff22 	bl	800144c <HAL_GPIO_ReadPin>
  8000608:	4603      	mov	r3, r0
  800060a:	2b00      	cmp	r3, #0
- 800060c:	d0f7      	beq.n	80005fe <Temp_Input+0xe>
+ 800060c:	d0f7      	beq.n	80005fe <READ_SENSOR+0xe>
 		delay (40);
  800060e:	2028      	movs	r0, #40	; 0x28
  8000610:	f000 f8de 	bl	80007d0 <delay>
 		if (!(HAL_GPIO_ReadPin (DHT11_GPIO_Port, DHT11_Pin)))
  8000614:	f44f 7100 	mov.w	r1, #512	; 0x200
- 8000618:	481a      	ldr	r0, [pc, #104]	; (8000684 <Temp_Input+0x94>)
+ 8000618:	481a      	ldr	r0, [pc, #104]	; (8000684 <READ_SENSOR+0x94>)
  800061a:	f000 ff17 	bl	800144c <HAL_GPIO_ReadPin>
  800061e:	4603      	mov	r3, r0
  8000620:	2b00      	cmp	r3, #0
- 8000622:	d10e      	bne.n	8000642 <Temp_Input+0x52>
+ 8000622:	d10e      	bne.n	8000642 <READ_SENSOR+0x52>
 		{
 			i&= ~(1<<(7-j));
  8000624:	79bb      	ldrb	r3, [r7, #6]
@@ -575,7 +575,7 @@ uint8_t Temp_Input (void)
  800063a:	4013      	ands	r3, r2
  800063c:	b25b      	sxtb	r3, r3
  800063e:	71fb      	strb	r3, [r7, #7]
- 8000640:	e00b      	b.n	800065a <Temp_Input+0x6a>
+ 8000640:	e00b      	b.n	800065a <READ_SENSOR+0x6a>
 		}
 		else
 		{
@@ -593,18 +593,18 @@ uint8_t Temp_Input (void)
 		while ((HAL_GPIO_ReadPin (DHT11_GPIO_Port, DHT11_Pin)));
  800065a:	bf00      	nop
  800065c:	f44f 7100 	mov.w	r1, #512	; 0x200
- 8000660:	4808      	ldr	r0, [pc, #32]	; (8000684 <Temp_Input+0x94>)
+ 8000660:	4808      	ldr	r0, [pc, #32]	; (8000684 <READ_SENSOR+0x94>)
  8000662:	f000 fef3 	bl	800144c <HAL_GPIO_ReadPin>
  8000666:	4603      	mov	r3, r0
  8000668:	2b00      	cmp	r3, #0
- 800066a:	d1f7      	bne.n	800065c <Temp_Input+0x6c>
+ 800066a:	d1f7      	bne.n	800065c <READ_SENSOR+0x6c>
 	for (j=0;j<8;j++)
  800066c:	79bb      	ldrb	r3, [r7, #6]
  800066e:	3301      	adds	r3, #1
  8000670:	71bb      	strb	r3, [r7, #6]
  8000672:	79bb      	ldrb	r3, [r7, #6]
  8000674:	2b07      	cmp	r3, #7
- 8000676:	d9c1      	bls.n	80005fc <Temp_Input+0xc>
+ 8000676:	d9c1      	bls.n	80005fc <READ_SENSOR+0xc>
 	}
 	return i;
  8000678:	79fb      	ldrb	r3, [r7, #7]
@@ -619,7 +619,7 @@ uint8_t Temp_Input (void)
 08000688 <main>:
 static void MX_TIM6_Init(void);
 static void MX_UART4_Init(void);
-void delay (uint16_t time);
+
 
 int main(void)
 {
@@ -638,144 +638,146 @@ int main(void)
  800069e:	f000 f94f 	bl	8000940 <MX_TIM6_Init>
   MX_UART4_Init();
  80006a2:	f000 f983 	bl	80009ac <MX_UART4_Init>
-
   HAL_TIM_Base_Start(&htim6);
  80006a6:	483c      	ldr	r0, [pc, #240]	; (8000798 <main+0x110>)
  80006a8:	f001 fe0f 	bl	80022ca <HAL_TIM_Base_Start>
 
   while (1)
   {
-
-		  HAL_GPIO_TogglePin(ORANGE_GPIO_Port, ORANGE_Pin);
- 80006ac:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+      HAL_GPIO_WritePin(SS_GPIO_Port, SS_Pin, DISABLE);
+ 80006ac:	2200      	movs	r2, #0
+ 80006ae:	2110      	movs	r1, #16
  80006b0:	483a      	ldr	r0, [pc, #232]	; (800079c <main+0x114>)
- 80006b2:	f000 fefc 	bl	80014ae <HAL_GPIO_TogglePin>
-		  DHT11_Start();
- 80006b6:	f7ff ff47 	bl	8000548 <DHT11_Start>
-		  FLAG = INPUT_CHECK();
- 80006ba:	f7ff ff69 	bl	8000590 <INPUT_CHECK>
- 80006be:	4603      	mov	r3, r0
- 80006c0:	461a      	mov	r2, r3
- 80006c2:	4b37      	ldr	r3, [pc, #220]	; (80007a0 <main+0x118>)
- 80006c4:	701a      	strb	r2, [r3, #0]
-		  HAL_GPIO_WritePin(SS_GPIO_Port, SS_Pin, DISABLE);
- 80006c6:	2200      	movs	r2, #0
- 80006c8:	2110      	movs	r1, #16
- 80006ca:	4836      	ldr	r0, [pc, #216]	; (80007a4 <main+0x11c>)
- 80006cc:	f000 fed6 	bl	800147c <HAL_GPIO_WritePin>
-		  if (FLAG == 1)
- 80006d0:	4b33      	ldr	r3, [pc, #204]	; (80007a0 <main+0x118>)
+ 80006b2:	f000 fee3 	bl	800147c <HAL_GPIO_WritePin>
+      HAL_GPIO_TogglePin(ORANGE_GPIO_Port, ORANGE_Pin);
+ 80006b6:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+ 80006ba:	4839      	ldr	r0, [pc, #228]	; (80007a0 <main+0x118>)
+ 80006bc:	f000 fef7 	bl	80014ae <HAL_GPIO_TogglePin>
+      SETUP();
+ 80006c0:	f7ff ff42 	bl	8000548 <SETUP>
+      FLAG = INPUT_CHECK();
+ 80006c4:	f7ff ff64 	bl	8000590 <INPUT_CHECK>
+ 80006c8:	4603      	mov	r3, r0
+ 80006ca:	461a      	mov	r2, r3
+ 80006cc:	4b35      	ldr	r3, [pc, #212]	; (80007a4 <main+0x11c>)
+ 80006ce:	701a      	strb	r2, [r3, #0]
+      if (FLAG == 1)
+ 80006d0:	4b34      	ldr	r3, [pc, #208]	; (80007a4 <main+0x11c>)
  80006d2:	781b      	ldrb	r3, [r3, #0]
  80006d4:	b2db      	uxtb	r3, r3
  80006d6:	2b01      	cmp	r3, #1
  80006d8:	d158      	bne.n	800078c <main+0x104>
-		  {
-			  HUM_HIGH = Temp_Input();
- 80006da:	f7ff ff89 	bl	80005f0 <Temp_Input>
+      {
+          HUM_HIGH = READ_SENSOR();
+ 80006da:	f7ff ff89 	bl	80005f0 <READ_SENSOR>
  80006de:	4603      	mov	r3, r0
  80006e0:	461a      	mov	r2, r3
  80006e2:	4b31      	ldr	r3, [pc, #196]	; (80007a8 <main+0x120>)
  80006e4:	701a      	strb	r2, [r3, #0]
-			  HUM_LOW = Temp_Input();
- 80006e6:	f7ff ff83 	bl	80005f0 <Temp_Input>
+          HUM_LOW = READ_SENSOR();
+ 80006e6:	f7ff ff83 	bl	80005f0 <READ_SENSOR>
  80006ea:	4603      	mov	r3, r0
  80006ec:	461a      	mov	r2, r3
  80006ee:	4b2f      	ldr	r3, [pc, #188]	; (80007ac <main+0x124>)
  80006f0:	701a      	strb	r2, [r3, #0]
-			  TEMP_HIGH = Temp_Input();
- 80006f2:	f7ff ff7d 	bl	80005f0 <Temp_Input>
+          TEMP_HIGH = READ_SENSOR();
+ 80006f2:	f7ff ff7d 	bl	80005f0 <READ_SENSOR>
  80006f6:	4603      	mov	r3, r0
  80006f8:	461a      	mov	r2, r3
  80006fa:	4b2d      	ldr	r3, [pc, #180]	; (80007b0 <main+0x128>)
  80006fc:	701a      	strb	r2, [r3, #0]
-			  TEMP_LOW = Temp_Input();
- 80006fe:	f7ff ff77 	bl	80005f0 <Temp_Input>
+          TEMP_LOW = READ_SENSOR();
+ 80006fe:	f7ff ff77 	bl	80005f0 <READ_SENSOR>
  8000702:	4603      	mov	r3, r0
  8000704:	461a      	mov	r2, r3
  8000706:	4b2b      	ldr	r3, [pc, #172]	; (80007b4 <main+0x12c>)
  8000708:	701a      	strb	r2, [r3, #0]
-			  PARITY_CHECK = Temp_Input();
- 800070a:	f7ff ff71 	bl	80005f0 <Temp_Input>
+          PARITY_CHECK = READ_SENSOR();
+ 800070a:	f7ff ff71 	bl	80005f0 <READ_SENSOR>
  800070e:	4603      	mov	r3, r0
  8000710:	b29a      	uxth	r2, r3
  8000712:	4b29      	ldr	r3, [pc, #164]	; (80007b8 <main+0x130>)
  8000714:	801a      	strh	r2, [r3, #0]
-			  HUM_FULL = HUM_HIGH;
+          HUM_FULL = HUM_HIGH;
  8000716:	4b24      	ldr	r3, [pc, #144]	; (80007a8 <main+0x120>)
  8000718:	781b      	ldrb	r3, [r3, #0]
  800071a:	b2db      	uxtb	r3, r3
  800071c:	b29a      	uxth	r2, r3
  800071e:	4b27      	ldr	r3, [pc, #156]	; (80007bc <main+0x134>)
  8000720:	801a      	strh	r2, [r3, #0]
-			  TEMP_FULL = TEMP_HIGH;
+          TEMP_FULL = TEMP_HIGH;
  8000722:	4b23      	ldr	r3, [pc, #140]	; (80007b0 <main+0x128>)
  8000724:	781b      	ldrb	r3, [r3, #0]
  8000726:	b2db      	uxtb	r3, r3
  8000728:	b29a      	uxth	r2, r3
  800072a:	4b25      	ldr	r3, [pc, #148]	; (80007c0 <main+0x138>)
  800072c:	801a      	strh	r2, [r3, #0]
-			  REAL_TEMP = (int)TEMP_FULL;
+          REAL_TEMP = (int)TEMP_FULL;
  800072e:	4b24      	ldr	r3, [pc, #144]	; (80007c0 <main+0x138>)
  8000730:	881b      	ldrh	r3, [r3, #0]
  8000732:	b29b      	uxth	r3, r3
  8000734:	461a      	mov	r2, r3
  8000736:	4b23      	ldr	r3, [pc, #140]	; (80007c4 <main+0x13c>)
  8000738:	601a      	str	r2, [r3, #0]
-			  REAL_HUM = (int)HUM_FULL;
+          REAL_HUM = (int)HUM_FULL;
  800073a:	4b20      	ldr	r3, [pc, #128]	; (80007bc <main+0x134>)
  800073c:	881b      	ldrh	r3, [r3, #0]
  800073e:	b29b      	uxth	r3, r3
  8000740:	461a      	mov	r2, r3
  8000742:	4b21      	ldr	r3, [pc, #132]	; (80007c8 <main+0x140>)
  8000744:	601a      	str	r2, [r3, #0]
-			  uint8_t temp1 = (uint8_t)REAL_HUM;
+          uint8_t H = (uint8_t)REAL_HUM;
  8000746:	4b20      	ldr	r3, [pc, #128]	; (80007c8 <main+0x140>)
  8000748:	681b      	ldr	r3, [r3, #0]
  800074a:	71fb      	strb	r3, [r7, #7]
-			  uint8_t temp2 = (uint8_t)REAL_TEMP;
+          uint8_t T = (uint8_t)REAL_TEMP;
  800074c:	4b1d      	ldr	r3, [pc, #116]	; (80007c4 <main+0x13c>)
  800074e:	681b      	ldr	r3, [r3, #0]
  8000750:	b2db      	uxtb	r3, r3
  8000752:	71bb      	strb	r3, [r7, #6]
-			  if(temp2>15 && temp2<=23)                        				//Ambient Temperature Condition
+          if(T>15 && T<=23)                                         //Ambient Temperature Condition
  8000754:	79bb      	ldrb	r3, [r7, #6]
  8000756:	2b0f      	cmp	r3, #15
  8000758:	d907      	bls.n	800076a <main+0xe2>
  800075a:	79bb      	ldrb	r3, [r7, #6]
  800075c:	2b17      	cmp	r3, #23
  800075e:	d804      	bhi.n	800076a <main+0xe2>
-				  HAL_GPIO_TogglePin(GREEN_GPIO_Port, GREEN_Pin);
+          {
+              HAL_GPIO_TogglePin(GREEN_GPIO_Port, GREEN_Pin);
  8000760:	f44f 5180 	mov.w	r1, #4096	; 0x1000
- 8000764:	480d      	ldr	r0, [pc, #52]	; (800079c <main+0x114>)
+ 8000764:	480e      	ldr	r0, [pc, #56]	; (80007a0 <main+0x118>)
  8000766:	f000 fea2 	bl	80014ae <HAL_GPIO_TogglePin>
-			  if(temp2>23)
+          }
+          if(T>23)												    //Threshold Condition
  800076a:	79bb      	ldrb	r3, [r7, #6]
  800076c:	2b17      	cmp	r3, #23
  800076e:	d904      	bls.n	800077a <main+0xf2>
-				  HAL_GPIO_TogglePin(RED_GPIO_Port, RED_Pin);
+          {
+              HAL_GPIO_TogglePin(RED_GPIO_Port, RED_Pin);
  8000770:	f44f 4180 	mov.w	r1, #16384	; 0x4000
- 8000774:	4809      	ldr	r0, [pc, #36]	; (800079c <main+0x114>)
+ 8000774:	480a      	ldr	r0, [pc, #40]	; (80007a0 <main+0x118>)
  8000776:	f000 fe9a 	bl	80014ae <HAL_GPIO_TogglePin>
-			  HAL_SPI_Transmit(&hspi1, &temp2, 1, 10);
+          }
+          HAL_SPI_Transmit(&hspi1, &T, 1, 10);
  800077a:	1db9      	adds	r1, r7, #6
  800077c:	230a      	movs	r3, #10
  800077e:	2201      	movs	r2, #1
  8000780:	4812      	ldr	r0, [pc, #72]	; (80007cc <main+0x144>)
  8000782:	f001 fb97 	bl	8001eb4 <HAL_SPI_Transmit>
-			  HAL_Delay(100);
+          HAL_Delay(100);
  8000786:	2064      	movs	r0, #100	; 0x64
  8000788:	f000 fb92 	bl	8000eb0 <HAL_Delay>
-		  }
-		  delay(1000);
+      }
+      delay(1000);
  800078c:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  8000790:	f000 f81e 	bl	80007d0 <delay>
-		  HAL_GPIO_TogglePin(ORANGE_GPIO_Port, ORANGE_Pin);
+      HAL_GPIO_WritePin(SS_GPIO_Port, SS_Pin, DISABLE);
  8000794:	e78a      	b.n	80006ac <main+0x24>
  8000796:	bf00      	nop
  8000798:	20000034 	.word	0x20000034
- 800079c:	40020c00 	.word	0x40020c00
- 80007a0:	20000116 	.word	0x20000116
- 80007a4:	40020000 	.word	0x40020000
+ 800079c:	40020000 	.word	0x40020000
+ 80007a0:	40020c00 	.word	0x40020c00
+ 80007a4:	20000116 	.word	0x20000116
  80007a8:	2000002a 	.word	0x2000002a
  80007ac:	20000030 	.word	0x20000030
  80007b0:	20000031 	.word	0x20000031

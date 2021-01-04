@@ -28,6 +28,7 @@ volatile uint8_t FLAG;
 volatile uint16_t PARITY_CHECK;
 volatile uint16_t HUM_FULL, TEMP_FULL;
 volatile int REAL_TEMP, REAL_HUM;
+void delay (uint16_t time);
 
 SPI_HandleTypeDef hspi1;
 TIM_HandleTypeDef htim6;
@@ -104,7 +105,7 @@ static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_UART4_Init(void);
-void delay (uint16_t time);
+
 
 int main(void)
 {
@@ -139,7 +140,7 @@ int main(void)
           {
               HAL_GPIO_TogglePin(GREEN_GPIO_Port, GREEN_Pin);
           }
-          if(T>23)
+          if(T>23)												    //Threshold Condition
           {
               HAL_GPIO_TogglePin(RED_GPIO_Port, RED_Pin);
           }

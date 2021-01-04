@@ -28,34 +28,34 @@ endif
 
 -include ../makefile.defs
 
-BUILD_ARTIFACT_NAME := 001HumidtyMonitor
+BUILD_ARTIFACT_NAME := Temperature_Monitor
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-001HumidtyMonitor.elf \
+Temperature_Monitor.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-001HumidtyMonitor.list \
+Temperature_Monitor.list \
 
 OBJCOPY_BIN += \
-001HumidtyMonitor.bin \
+Temperature_Monitor.bin \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: 001HumidtyMonitor.elf secondary-outputs
+main-build: Temperature_Monitor.elf secondary-outputs
 
 # Tool invocations
-001HumidtyMonitor.elf: $(OBJS) $(USER_OBJS) C:\Users\99003173\Desktop\EmbededProject\001HumidtyMonitor\STM32F407VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "001HumidtyMonitor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\99003173\Desktop\EmbededProject\001HumidtyMonitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HumidtyMonitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Temperature_Monitor.elf: $(OBJS) $(USER_OBJS) C:\Users\99003173\Desktop\EMBEDDED_PROJECT\Temperature_Monitor\STM32F407VGTX_FLASH.ld
+	arm-none-eabi-gcc -o "Temperature_Monitor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\99003173\Desktop\EMBEDDED_PROJECT\Temperature_Monitor\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Temperature_Monitor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -64,13 +64,13 @@ default.size.stdout: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-001HumidtyMonitor.list: $(EXECUTABLES)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "001HumidtyMonitor.list"
+Temperature_Monitor.list: $(EXECUTABLES)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Temperature_Monitor.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-001HumidtyMonitor.bin: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "001HumidtyMonitor.bin"
+Temperature_Monitor.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Temperature_Monitor.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 
